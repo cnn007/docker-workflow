@@ -1,14 +1,16 @@
 # Set the base image to Ubuntu
-FROM    ubuntu
+FROM    mhart/alpine-node:6.0.0
 
 # File Author / Maintainer
 MAINTAINER Anand Mani Sankar
 
-# Install Node.js and other dependencies
-RUN apt-get update && \
-    apt-get -y install curl && \
-    curl -sL https://deb.nodesource.com/setup | sudo bash - && \
-    apt-get -y install python build-essential nodejs
+RUN apk add --update \
+    python \
+    python-dev \
+    py-pip \
+    build-base \
+  && pip install virtualenv \
+  && rm -rf /var/cache/apk/*
 
 # Install nodemon
 RUN npm install -g nodemon

@@ -25,6 +25,6 @@ node3:
     ports:
         - "8080"
 redis:
-    image: redis
+    image: redis:alpine
     ports:
         - "6379"
