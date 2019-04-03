@@ -5,7 +5,7 @@ nginx:
         - node2:node2
         - node3:node3
     ports:
-        - "80:80"
+        - "90:80"
 node1:
     build: ./node
     links:
@@ -27,4 +27,4 @@ node3:
 redis:
     image: redis:alpine
     ports:
-        - "6379"
+        - "6380:6379"
